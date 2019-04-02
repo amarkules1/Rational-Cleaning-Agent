@@ -9,10 +9,10 @@ public class ScoringEnvironment {
 	int[] agent_location;
 	int moveCt;
 
-	public ScoringEnvironment() {
-		this.rowCt = 1;
-		this.columnCt = 2;
-		this.environment = initRandomEnvironment(1,2);
+	public ScoringEnvironment(int rowCt, int colCt) {
+		this.rowCt = rowCt;
+		this.columnCt = colCt;
+		this.environment = initRandomEnvironment(rowCt,colCt);
 		this.agent_location = new int[2];
 		this.agent_location[0] = 0;
 		this.agent_location[1] = 0;
@@ -43,7 +43,7 @@ public class ScoringEnvironment {
 	}
 	
 	public boolean isClean(int i, int j) {
-		return this.environment[i][j].equals("clean");
+		return this.environment[i][j].equalsIgnoreCase("clean");
 	}
 
 	public String[][] getEnvironment() {
