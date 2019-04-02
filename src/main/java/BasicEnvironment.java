@@ -5,7 +5,7 @@ public class BasicEnvironment {
 	String[][] environment;
 	int rowCt;
 	int columnCt;
-	
+	int agent_location;
 
 	public BasicEnvironment() {
 		this.rowCt = 1;
@@ -64,5 +64,34 @@ public class BasicEnvironment {
 		this.columnCt = columnCt;
 	}
 	
+	public int get_agent_location() {
+
+		return this.agent_location;
+	}
+
+	public void set_configuration(int A_status, int B_status, int location) {
+		
+		this.environment[0][0] = (A_status == 0) ? "clean" : "dirty";
+		this.environment[0][1] = (B_status == 0) ? "clean" : "dirty";
+
+		this.agent_location = location;		
+	}
 	
+	public void act(String action) {
+		
+		if (action == "Suck")
+			this.environment[0][this.agent_location] = "clean";
+		else if (action == "Right")
+			if (this.agent_location == 0)
+				this.agent_location = 1;
+			else
+				System.out.println("\n" + "Movement Error"+ "\n");
+		else if (action == "Left")
+			if (this.agent_location == 1)
+				this.agent_location = 0;
+			else
+				System.out.println("\n" + "Movement Error"+ "\n");
+		else
+			System.out.println("\n" + "Movement Error"+ "\n");
+	}
 }
