@@ -3,7 +3,7 @@ package main.java;
 public class Main {
 
 	public static void main(String[] args) {
-	
+	/*
 		//initialize environment
 		BasicEnvironment env = new BasicEnvironment();
 		Agents agent = new Agents();
@@ -21,5 +21,13 @@ public class Main {
 						System.out.println(i + ":" + j + ":" + k + ":" + l + ":" + action + ":" +  env.get_agent_location() + ":" + (env.isClean(0,env.get_agent_location()) ? 0 : 1));
 					}
 				}
+				
+		*/
+		
+		Agents agent = new Agents();
+		agent.stateAgent(100, 4);
+		agent.stateAgent(100, 4);
+		agent.stateAgent(100, 4);
+		agent.stateAgent(100, 4);
 	}
 }

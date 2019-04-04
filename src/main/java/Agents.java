@@ -25,13 +25,16 @@ public class Agents {
 				env.act("Suck");
 				visited[env.get_agent_location()[0]][env.get_agent_location()[1]] = 1;
 			}
-			else if(env.get_agent_location()[1]<columnCt && visited[env.get_agent_location()[0]][(env.get_agent_location()[1] + 1)] !=1) {
+			else if(env.get_agent_location()[1]+1<columnCt && visited[env.get_agent_location()[0]][(env.get_agent_location()[1] + 1)] !=1) {
+				visited[env.get_agent_location()[0]][env.get_agent_location()[1]] = 1;
 				env.act("Right");
 			}
 			else if(env.get_agent_location()[1]>0 && visited[env.get_agent_location()[0]][(env.get_agent_location()[1] - 1)] !=1){
+				visited[env.get_agent_location()[0]][env.get_agent_location()[1]] = 1;
 				env.act("Left");
 			}
-			else if(env.get_agent_location()[0]<rowCt && visited[env.get_agent_location()[0]+1][env.get_agent_location()[1]]!=1) {
+			else if(env.get_agent_location()[0]+1<rowCt && visited[env.get_agent_location()[0]+1][env.get_agent_location()[1]]!=1) {
+				visited[env.get_agent_location()[0]][env.get_agent_location()[1]] = 1;
 				env.act("Up");
 			}else if(!env.isDone()) {
 				returnToOrigin(env);
